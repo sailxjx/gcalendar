@@ -1,0 +1,35 @@
+{
+  "name": "gcalendar",
+  "version": "0.0.0",
+  "description": "Google Calendar SDK",
+  "main": "lib/index.js",
+  "dependencies": {
+    "googleapis": "~0.4.6"
+  },
+  "devDependencies": {
+    "cake-dog": "~0.2.2",
+    "should": "~2.1.0",
+    "coffee-script": "~1.6.3",
+    "mocha": "~1.14.0"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sailxjx/gcalendar.git"
+  },
+  "keywords": [
+    "google",
+    "calendar",
+    "sdk"
+  ],
+  "author": "sailxjx",
+  "license": {
+    "type": "MIT",
+    "url": "http://sailxjx.mit-license.org"
+  },
+  "bugs": {
+    "url": "https://github.com/sailxjx/gcalendar/issues"
+  }
+}
