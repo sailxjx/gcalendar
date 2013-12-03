@@ -26,4 +26,7 @@ class Gcalendar
   getToken: (code, callback = ->) ->
     @auth.getToken(code, callback)
 
+  refreshToken: (callback = ->) ->
+    @auth.refreshAccessToken(callback)
+
 module.exports = Gcalendar
