@@ -11,11 +11,45 @@ class Gcalendar
         access_token: access_token
         refresh_token: refresh_token
 
-  client: (callback = ->) ->
-    gapi.discover('calendar', 'v3').execute(callback)
+  execute: (request, callback = ->) ->
+    request.withAuthClient(@auth).execute(callback)
 
-  execute: (req, callback = ->) ->
-    req.withAuthClient(@auth).execute(callback)
+  api: (query) ->
+
+    _api = {}
+    _arguments = []
+
+    _api.execute = (callback = ->) =>
+      @getClient (err, client) =>
+        return callback(err) if err?
+
+        _method = {}
+
+        steps = query.split('.')
+        steps.unshift('calendar')
+
+        steps.every (prop) ->
+          return _method = _method[prop] or client[prop]
+
+        return callback(new Error("No Such Api! #{query}")) unless typeof _method is 'function'
+
+        @execute(_method.apply(client, _arguments), callback)
+
+      return _api
+
+    _api.arguments = ->
+      _arguments = arguments
+      return _api
+
+    return _api
+
+  getClient: (callback = ->) ->
+    return callback(null, @_client) if @_client?
+    gapi.discover('calendar', 'v3').execute (err, client) =>
+      @_client = client
+      callback(err, client)
+
+  getAuth: -> @auth
 
   generateAuthUrl: ->
     return @auth.generateAuthUrl
