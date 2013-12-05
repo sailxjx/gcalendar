@@ -1,6 +1,6 @@
 {
   "name": "gcalendar",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Google Calendar SDK",
   "main": "lib/index.js",
   "dependencies": {
