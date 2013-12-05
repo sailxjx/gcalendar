@@ -12,7 +12,10 @@ class Gcalendar
         refresh_token: refresh_token
 
   execute: (request, callback = ->) ->
-    request.withAuthClient(@auth).execute(callback)
+    try
+      request.withAuthClient(@auth).execute(callback)
+    catch e
+      callback(e)
 
   api: (query) ->
 
