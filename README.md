@@ -53,3 +53,4 @@ gcalendar.api('events.list').arguments(
 * [Api Console](https://code.google.com/apis/console/)
 * [Calendar Api](https://developers.google.com/google-apps/calendar/v3/reference/)
 * [Oauth2](https://developers.google.com/accounts/docs/OAuth2WebServer)
+* [google-rfc-2445](http://google-rfc-2445.googlecode.com/svn/trunk/rfc2445.html)
