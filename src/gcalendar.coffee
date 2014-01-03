@@ -49,11 +49,13 @@ class Gcalendar
 
   getAuth: -> @auth
 
-  generateAuthUrl: ->
-    return @auth.generateAuthUrl
+  generateAuthUrl: (callback = ->) ->
+    url = @auth.generateAuthUrl
       access_type: 'offline'
       scope: 'https://www.googleapis.com/auth/calendar'
       approval_prompt: 'force'
+    callback(null, url)
+    return url
 
   getToken: (code, callback = ->) ->
     @auth.getToken(code, callback)
