@@ -21,7 +21,7 @@ class Gcalendar
 
     _api = (args...) =>
       if typeof args[args.length - 1] is 'function'
-        callback = args.splice(args.length - 1)
+        callback = args.splice(args.length - 1)[0]
       else
         callback = ->
       @getClient (err, client) =>
