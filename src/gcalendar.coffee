@@ -38,6 +38,7 @@ class Gcalendar
         return callback(new Error("No Such Api! #{query}")) unless typeof _method is 'function'
 
         @execute _method.apply(client, args), (err, result) ->
+          err = new Error(err) if err?
           callback(err, result)
 
     return _api
@@ -59,9 +60,13 @@ class Gcalendar
     return url
 
   getToken: (code, callback = ->) ->
-    @auth.getToken(code, callback)
+    @auth.getToken code, (err, result) ->
+      err = new Error(err) if err?
+      callback(err, result)
 
   refreshToken: (callback = ->) ->
-    @auth.refreshAccessToken(callback)
+    @auth.refreshAccessToken (err, result) ->
+      err = new Error(err) if err?
+      callback(err, result)
 
 module.exports = Gcalendar
