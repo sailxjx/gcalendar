@@ -4,6 +4,8 @@ Gcalendar = require('./gcalendar')
 instances = {}
 
 clearInstance = ->
+  for k, instance of instances
+    delete instances[k] if new Date - instance.started > 60000
 
 loadInstance = (instanceId, callback) ->
   if Math.round(Math.random() * 200) is 100  # 1/200
