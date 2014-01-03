@@ -1,1 +1,3 @@
-module.exports = require('./gcalendar')
+Gcalendar = require('./gcalendar')
+Gcalendar.Client = require('./client')
+module.exports = Gcalendar
