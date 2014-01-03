@@ -19,13 +19,8 @@ exports.init = (options, callback = ->) ->
   callback(null, instanceId)
 
 exports.api = (instanceId, query, args...) ->
-  console.log 'call api'
-  console.log args
   loadInstance instanceId, (err, instance) ->
     return callback(err) if err?
-    # instance.api(query) args, (err, result) ->
-    #   console.log arguments
-    #   callback(err, result)
     instance.api(query).apply(instance, args)
 
 exports.generateAuthUrl = (instanceId, callback = ->) ->
