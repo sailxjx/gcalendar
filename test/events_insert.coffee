@@ -7,9 +7,9 @@ event =
   method: 'email'
   minutes: 15
 
-gc.api('events.insert').arguments(
+gc.api('events.insert')
   calendarId: 'sailxjx@gmail.com'
-  , event
-).execute (err, event) ->
+, event
+, (err, event) ->
   return console.log err if err?
   console.log event

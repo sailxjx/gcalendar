@@ -1,9 +1,9 @@
 gc = require('./private/gc')
 
-gc.api('events.get').arguments(
+gc.api('events.get')
   calendarId: 'sailxjx@gmail.com'
   eventId: 'm3uo0294k7q88ca2q1j90uscm4'
-).execute (err, event) ->
+, (err, event) ->
   return console.log err if err?
 
   # date: 2013-12-12
