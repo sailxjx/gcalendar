@@ -4,7 +4,9 @@
   "description": "Google Calendar SDK",
   "main": "lib/index.js",
   "dependencies": {
-    "googleapis": "~0.4.6"
+    "googleapis": "~0.4.6",
+    "axon": "~1.0.0",
+    "axon-rpc": "0.0.2"
   },
   "devDependencies": {
     "cake-dog": "~0.2.2",

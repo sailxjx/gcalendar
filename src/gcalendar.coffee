@@ -19,10 +19,11 @@ class Gcalendar
 
   api: (query) ->
 
-    _api = {}
-    _arguments = []
-
-    _api.execute = (callback = ->) =>
+    _api = (args...) =>
+      if typeof args[args.length - 1] is 'function'
+        callback = args.splice(args.length - 1)
+      else
+        callback = ->
       @getClient (err, client) =>
         return callback(err) if err?
 
@@ -36,13 +37,7 @@ class Gcalendar
 
         return callback(new Error("No Such Api! #{query}")) unless typeof _method is 'function'
 
-        @execute(_method.apply(client, _arguments), callback)
-
-      return _api
-
-    _api.arguments = ->
-      _arguments = arguments
-      return _api
+        @execute(_method.apply(client, args), callback)
 
     return _api
 
