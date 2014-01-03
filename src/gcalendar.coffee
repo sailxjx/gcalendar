@@ -37,7 +37,9 @@ class Gcalendar
 
         return callback(new Error("No Such Api! #{query}")) unless typeof _method is 'function'
 
-        @execute(_method.apply(client, args), callback)
+        @execute _method.apply(client, args), (err, result) ->
+          console.log arguments
+          callback(err, result)
 
     return _api
 
