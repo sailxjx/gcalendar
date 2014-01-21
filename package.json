@@ -7,7 +7,8 @@
     "googleapis": "~0.4.6",
     "axon": "~1.0.0",
     "axon-rpc": "0.0.2",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "graceful-logger": "~0.2.2"
   },
   "devDependencies": {
     "cake-dog": "~0.2.2",
