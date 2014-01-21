@@ -1,5 +1,6 @@
 axon = require('axon')
 rpc = require('axon-rpc')
+logger = require('graceful-logger').format('color([:level :date]) :msg')
 api = require('./api')
 
 server = ->
@@ -7,6 +8,6 @@ server = ->
   server = new rpc.Server(rep)
   rep.bind(5187)
   server.expose(api)
-  console.log 'gcalendar serving'
+  logger.info('gcalendar serving')
 
 module.exports = server

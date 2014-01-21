@@ -1,6 +1,6 @@
 crypto = require('crypto')
 Gcalendar = require('./gcalendar')
-logger = require('graceful-logger').format('color([:level :date]) :msg')
+logger = require('graceful-logger')
 
 instances = {}
 
