@@ -6,7 +6,7 @@ instances = {}
 
 clearInstance = ->
   for k, instance of instances
-    delete instances[k] if new Date - instance.started > 60000
+    delete instances[k] if new Date - instance.started > 300000 
   return true
 
 loadInstance = (instanceId, callback) ->
